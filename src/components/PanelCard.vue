@@ -1,14 +1,9 @@
 <template>
   <div id="PanelCard">
-    <div class="PanelCardQuestion">{{ question }}</div>
+    <div class="PanelCardQuestion">{{ question.question }}</div>
     <div class="PanelCardOptions">
         <ul>
-            <li
-            is="option-item"
-            v-for="(option) in options"
-            v-bind:key="option.id"
-            v-bind:label="option.label"
-            ></li>
+            <li v-for="(option) in question.options">{{ option.label }}</li>
         </ul>
     </div>
   </div>
@@ -17,8 +12,8 @@
 <script>
 export default {
   name: 'PanelCard',
-  porps: {
-    question: String,
+  props: {
+    question: Object,
     options: Array
   }
 }
